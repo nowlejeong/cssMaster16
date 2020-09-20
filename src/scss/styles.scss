@@ -12,178 +12,231 @@ body {
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-columns: 5fr 53px 3fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 0.5fr 6fr 1fr;
+  background-color: black;
+  gap: 1px;
 }
 header {
-  padding: 10px;
-  background-color: $orange;
-  section {
-    // padding: 10px;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 1fr);
-    border: 1px solid $red;
-    background-color: $red;
-    gap: 1px;
-    .column {
-      display: grid;
-      grid-template-columns: 0.5fr 7fr 3fr;
-      gap: 1px;
-      color: $orange2;
-      cursor: pointer;
-      &:hover {
-        border: 1px solid white;
-        background-color: white;
-        color: white;
-        .wrap {
-          .button {
-            background-color: white;
-            border-color: white;
-          }
-        }
+  height: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  div {
+    background-color: white;
+    padding-left: 10px;
+  }
+  .title {
+    padding-left: 20px;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+  .search {
+    padding-left: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    span {
+      padding-left: 10px;
+    }
+  }
+  .loginBox {
+    ul {
+      display: flex;
+      height: 100%;
+      justify-content: flex-end;
+      li {
+        padding-right: 10px;
+        display: flex;
+        align-items: center;
       }
-      .subtitle {
-        background-color: $orange;
-        writing-mode: vertical-lr;
-        transform: rotate(180deg);
+    }
+  }
+}
+.banner {
+  height: 30px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+
+  font-size: 14px;
+  font-weight: 200;
+  // letter-spacing: 2px;
+}
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr 70px;
+  gap: 1px;
+  .address {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    font-size: 14px;
+    font-weight: 200;
+    padding-left: 20px;
+  }
+  .product-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    // grid-template-rows: 1fr;
+    gap: 1px;
+
+    .pic {
+      width: 100%;
+      height: 100%;
+      background-image: url("https://images.unsplash.com/photo-1509695507497-903c140c43b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80");
+      background-size: cover;
+      background-position: center center;
+    }
+    .product-detail {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 30px 0.03fr 30px 0.06fr;
+      gap: 1px;
+      grid-template-areas:
+        "price contact"
+        "detail detail"
+        "avail shipping"
+        "detail2 detail2";
+      font-size: 14px;
+      font-weight: 300;
+      div {
+        background-color: white;
+      }
+      .price {
+        grid-area: price;
         display: flex;
         justify-content: center;
         align-items: center;
+        font-weight: 500;
+        font-size: 18px;
       }
-      .title {
-        background-color: $orange;
+      .contact {
+        grid-area: contact;
         display: flex;
+        justify-content: center;
         align-items: center;
-        font-size: 70px;
-        padding-left: 16px;
-        font-weight: 600;
-      }
-      menu {
-        height: 100%;
-        display: grid;
-        gap: 1px;
-        .description {
-          background-color: $orange;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          padding: 0 10px;
+        font-weight: 300;
+        font-size: 16px;
+        &:hover {
+          background-color: yellowgreen;
         }
-        .wrap {
-          background-color: $orange;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          .button {
-            border: 1px solid $orange2;
-            border-radius: 20px;
-            background-color: $orange2;
-            width: 200px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: $orange;
+      }
+      .detail {
+        padding: 5px 10px;
+        grid-area: detail;
+        h2 {
+          font-size: 16px;
+          font-weight: 400;
+        }
+        p {
+          font-size: 12px;
+          padding-top: 5px;
+          &:last-child {
+            margin-bottom: 10px;
+          }
+        }
+        .subtitle {
+          margin: 20px 0;
+          font-weight: 400;
+        }
+      }
+      .avail {
+        grid-area: avail;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 400;
+        font-size: 16px;
+      }
+      .shipping {
+        grid-area: shipping;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 400;
+        font-size: 16px;
+      }
+      .detail2 {
+        grid-area: detail2;
+        padding: 10px 10px;
+        h4 {
+          margin: 20px 0;
+          font-weight: 400;
+        }
+        p {
+          font-weight: 400;
+          margin: 20px 0;
+        }
+        ul {
+          padding-left: 20px;
+          li {
+            list-style: disc;
+            font-size: 12px;
+            padding-top: 5px;
+            font-weight: 400;
+            &:last-child {
+              margin-bottom: 10px;
+            }
           }
         }
       }
     }
   }
-}
-
-.mid {
-  // background-color: $blue;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
-  .top {
+  .back {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    span {
-      writing-mode: vertical-lr;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-      font-size: 24px;
-      font-weight: 600;
-    }
-    i {
-      font-size: 54px;
-      margin-bottom: -27px;
-      z-index: 0;
-      transition: all ease 1s;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    a {
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 20px;
+      padding: 10px 40px;
+      text-decoration: none;
+      font-size: 12px;
+      color: black;
       &:hover {
-        transform: rotate(720deg);
+        cursor: pointer;
+        background-color: #1e1e1e;
+        color: white;
       }
     }
-  }
-  .bottom {
-    background-color: grey;
-    writing-mode: vertical-lr;
-    transform: rotate(180deg);
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 20px;
-    z-index: -1;
-    font-size: 22px;
-    font-weight: 300;
   }
 }
 
 footer {
-  padding: 12px;
-  background-color: $red;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 10fr;
-  nav {
-    ul {
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      li {
-        font-size: 24px;
-        font-weight: 500;
-
-        display: flex;
-        &:last-child {
-          div {
-            background-color: black;
+  grid-template-rows: 0.4fr 3.5fr;
+  gap: 1px;
+  // color: white;
+  font-weight: 400;
+  font-size: 12px;
+  .head {
+    height: 40px;
+    width: 100%;
+    background-color: #aaaaab;
+  }
+  .detail-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    div {
+      background-color: #aaaaab;
+      padding: 20px 20px;
+      ul {
+        li {
+          margin: 10px 0;
+          .emailbox {
+            border: 1px solid black;
+            padding: 10px 5px;
           }
         }
-        div {
-          height: 24px;
-          width: 24px;
-          border: 2px solid black;
-          border-radius: 12px;
-          margin-right: 4px;
-        }
-      }
-    }
-  }
-  .wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    article {
-      border-top: 2px solid black;
-      padding-top: 12px;
-      cursor: pointer;
-      &:hover {
-        color: white;
-      }
-      .title {
-        font-size: 26px;
-        font-weight: 500;
-      }
-      p {
-        letter-spacing: 1.2px;
       }
     }
   }

@@ -27,6 +27,7 @@ embed,
 fieldset,
 figcaption,
 figure,
+footer,
 form,
 h1,
 h2,
@@ -34,6 +35,7 @@ h3,
 h4,
 h5,
 h6,
+header,
 hgroup,
 html,
 i,
@@ -83,13 +85,6 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
-footer,
-header {
-  margin: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
-}
 article,
 aside,
 details,
@@ -103,19 +98,20 @@ nav,
 section {
   display: block;
 }
-body,
-header section {
-  display: -ms-grid;
-  display: grid;
-}
 body {
   line-height: 1;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   width: 100%;
   height: 100vh;
-  -ms-grid-columns: 5fr 53px 3fr;
-  grid-template-columns: 5fr 53px 3fr;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+  -ms-grid-rows: 0.5fr 1px 0.5fr 1px 6fr 1px 1fr;
+  grid-template-rows: 0.5fr 0.5fr 6fr 1fr;
+  background-color: #000;
+  gap: 1px;
 }
 ol,
 ul {
@@ -138,208 +134,252 @@ table {
 * {
   box-sizing: border-box;
 }
-header {
-  padding: 10px;
-  background-color: #fd6d37;
-}
-header section {
-  height: 100%;
-  -ms-grid-columns: 1fr;
-  grid-template-columns: 1fr;
-  -ms-grid-rows: 1fr 1px 1fr 1px 1fr 1px 1fr 1px 1fr 1px 1fr;
-  grid-template-rows: repeat(6, 1fr);
-  border: 1px solid #ff0601;
-  background-color: #ff0601;
-  gap: 1px;
-}
-.mid > :nth-child(1),
-footer > :nth-child(1),
-header section > :nth-child(1) {
+body > :nth-child(1) {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
 }
-header section > :nth-child(2) {
+body > :nth-child(2) {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
 }
-header section > :nth-child(3) {
+body > :nth-child(3) {
   -ms-grid-row: 5;
   -ms-grid-column: 1;
 }
-header section > :nth-child(4) {
+body > :nth-child(4) {
   -ms-grid-row: 7;
   -ms-grid-column: 1;
 }
-header section > :nth-child(5) {
-  -ms-grid-row: 9;
-  -ms-grid-column: 1;
-}
-header section > :nth-child(6) {
-  -ms-grid-row: 11;
-  -ms-grid-column: 1;
-}
-.mid,
-header section .column,
-header section .column menu {
+header,
+main {
   display: -ms-grid;
   display: grid;
-}
-header section .column {
   gap: 1px;
-  color: #ff0601;
-  cursor: pointer;
-  -ms-grid-columns: 0.5fr 1px 7fr 1px 3fr;
-  grid-template-columns: 0.5fr 7fr 3fr;
 }
-header section .column:hover {
-  border: 1px solid #fff;
+header {
+  height: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: 1fr 1px 1fr 1px 1fr;
+}
+header div {
   background-color: #fff;
-  color: #fff;
 }
-header section .column:hover .wrap .button {
-  background-color: #fff;
-  border-color: #fff;
-}
-header section .column .subtitle {
-  background-color: #fd6d37;
-  -ms-writing-mode: tb-lr;
-  writing-mode: vertical-lr;
-  transform: rotate(180deg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-header section .column .title {
-  background-color: #fd6d37;
-  display: flex;
-  align-items: center;
-  font-size: 70px;
-  padding-left: 16px;
+header .title {
+  padding-left: 20px;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   font-weight: 600;
 }
-header section .column menu {
-  height: 100%;
-  gap: 1px;
-}
-header section .column menu .description {
-  text-align: center;
-  padding: 0 10px;
-}
-header section .column menu .description,
-header section .column menu .wrap,
-header section .column menu .wrap .button {
-  background-color: #fd6d37;
+.banner,
+header .loginBox ul li,
+header .search,
+header .title {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
-header section .column menu .wrap .button {
-  border: 1px solid #ff0601;
-  border-radius: 20px;
-  background-color: #ff0601;
-  width: 200px;
-  height: 40px;
-  color: #fd6d37;
+header .search {
+  padding-left: 20px;
+  font-size: 18px;
 }
-.mid {
+header .search span,
+header div {
+  padding-left: 10px;
+}
+header .loginBox ul {
+  display: flex;
+  height: 100%;
+  justify-content: flex-end;
+}
+header .loginBox ul li {
+  padding-right: 10px;
+}
+.banner {
+  height: 30px;
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: 200;
+}
+main {
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
-  -ms-grid-rows: (1fr) [2];
-  grid-template-rows: repeat(2, 1fr);
+  -ms-grid-rows: 50px 1px 1fr 1px 70px;
+  grid-template-rows: 50px 1fr 70px;
 }
-.mid > :nth-child(2),
-footer > :nth-child(2) {
-  -ms-grid-row: 2;
+main > :nth-child(1) {
+  -ms-grid-row: 1;
   -ms-grid-column: 1;
 }
-.mid .top {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+main > :nth-child(2) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
 }
-.mid .bottom,
-.mid .top span {
-  -ms-writing-mode: tb-lr;
-  writing-mode: vertical-lr;
+main > :nth-child(3) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
 }
-.mid .top span {
-  margin-top: 20px;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: 600;
-}
-.mid .top i {
-  font-size: 54px;
-  margin-bottom: -27px;
-  z-index: 0;
-  transition: all ease 1s;
-}
-.mid .top i:hover {
-  transform: rotate(720deg);
-}
-.mid .bottom,
-.mid .top span,
-footer nav ul {
+main .address {
   display: flex;
   align-items: center;
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: 200;
+  padding-left: 20px;
 }
-.mid .bottom {
-  background-color: gray;
-  transform: rotate(180deg);
-  padding-top: 20px;
-  z-index: -1;
-  font-size: 22px;
+main .product-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1px 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+}
+main .product-container .pic {
+  width: 100%;
+  height: 100%;
+  background-image: url(https://images.unsplash.com/photo-1509695507497-903c140c43b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80);
+  background-size: cover;
+  background-position: center center;
+}
+main .product-container .product-detail {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1px 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: 30px 1px 0.03fr 1px 30px 1px 0.06fr;
+  grid-template-rows: 30px 0.03fr 30px 0.06fr;
+  gap: 1px;
+  grid-template-areas: "price contact" "detail detail" "avail shipping" "detail2 detail2";
+  font-size: 14px;
   font-weight: 300;
-  justify-content: flex-start;
+}
+main .product-container .product-detail div {
+  background-color: #fff;
+}
+main .product-container .product-detail .contact,
+main .product-container .product-detail .price {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: price;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 18px;
+}
+main .product-container .product-detail .contact {
+  -ms-grid-column: 3;
+  grid-area: contact;
+  font-weight: 300;
+  font-size: 16px;
+}
+main .product-container .product-detail .contact:hover {
+  background-color: #9acd32;
+}
+main .product-container .product-detail .detail {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  padding: 5px 10px;
+  grid-area: detail;
+}
+main .product-container .product-detail .detail h2 {
+  font-size: 16px;
+  font-weight: 400;
+}
+main .product-container .product-detail .detail p {
+  font-size: 12px;
+  padding-top: 5px;
+}
+main .product-container .product-detail .detail p:last-child,
+main .product-container .product-detail .detail2 ul li:last-child {
+  margin-bottom: 10px;
+}
+main .product-container .product-detail .avail,
+main .product-container .product-detail .shipping {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: avail;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 16px;
+}
+main .product-container .product-detail .shipping {
+  -ms-grid-column: 3;
+  grid-area: shipping;
+}
+main .product-container .product-detail .detail2 {
+  -ms-grid-row: 7;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: detail2;
+  padding: 10px;
+}
+main .product-container .product-detail .detail .subtitle,
+main .product-container .product-detail .detail2 h4,
+main .product-container .product-detail .detail2 p {
+  font-weight: 400;
+  margin: 20px 0;
+}
+main .product-container .product-detail .detail2 ul {
+  padding-left: 20px;
+}
+main .product-container .product-detail .detail2 ul li {
+  list-style: disc;
+  font-size: 12px;
+  padding-top: 5px;
+  font-weight: 400;
+}
+main .back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+main .back a {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 20px;
+  padding: 10px 40px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #000;
+}
+main .back a:hover {
+  cursor: pointer;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+footer,
+footer .detail-container {
+  display: -ms-grid;
+  display: grid;
+  gap: 1px;
 }
 footer {
-  padding: 12px;
-  background-color: #ff0601;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr;
-  grid-template-columns: 1fr;
-  -ms-grid-rows: 1fr 10fr;
-  grid-template-rows: 1fr 10fr;
+  -ms-grid-rows: 0.4fr 1px 3.5fr;
+  grid-template-rows: 0.4fr 3.5fr;
+  font-weight: 400;
+  font-size: 12px;
 }
-footer nav ul {
-  height: 100%;
-  justify-content: space-between;
+footer .head {
+  height: 40px;
+  width: 100%;
+  background-color: #aaaaab;
 }
-footer nav ul li {
-  font-size: 24px;
-  font-weight: 500;
-  display: flex;
+footer .detail-container {
+  -ms-grid-columns: 1fr 1px 1fr 1px 1fr 1px 1fr 1px 1fr 1px 1fr;
+  grid-template-columns: repeat(6, 1fr);
 }
-footer nav ul li:last-child div {
-  background-color: #000;
+footer .detail-container div {
+  background-color: #aaaaab;
+  padding: 20px;
 }
-footer nav ul li div {
-  height: 24px;
-  width: 24px;
-  border: 2px solid #000;
-  border-radius: 12px;
-  margin-right: 4px;
+footer .detail-container div ul li {
+  margin: 10px 0;
 }
-footer .wrapper {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 12px 1fr;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-footer .wrapper article {
-  border-top: 2px solid #000;
-  padding-top: 12px;
-  cursor: pointer;
-}
-footer .wrapper article:hover {
-  color: #fff;
-}
-footer .wrapper article .title {
-  font-size: 26px;
-  font-weight: 500;
-}
-footer .wrapper article p {
-  letter-spacing: 1.2px;
+footer .detail-container div ul li .emailbox {
+  border: 1px solid #000;
+  padding: 10px 5px;
 }
